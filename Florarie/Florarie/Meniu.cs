@@ -33,17 +33,68 @@ public class Meniu
             Console.WriteLine("Alta optiune - IESIRE");
             Console.WriteLine("Introduceti optiunea");
             cod1 = Console.ReadLine();
+            string cod4;
             switch (cod1)
             {
                 case "1":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod4=Console.ReadLine();
+                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "2":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod4=Console.ReadLine();
+                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;  
                 case "3":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod4=Console.ReadLine();
+                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "4":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod4=Console.ReadLine();
+                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "5":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod4=Console.ReadLine();
+                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 default: Console.WriteLine("Delogare reusita");
                     runApp(); 
@@ -63,17 +114,68 @@ public class Meniu
             Console.WriteLine("Alta optiune - IESIRE");
             Console.WriteLine("Introduceti optiunea");
             cod2 = Console.ReadLine();
+            string cod3;
             switch (cod2)
             {
                 case "1": 
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod3=Console.ReadLine();
+                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "2": 
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod3=Console.ReadLine();
+                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;  
                 case "3":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod3=Console.ReadLine();
+                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "4":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod3=Console.ReadLine();
+                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 case "5":
+                    
+                    Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
+                    cod3=Console.ReadLine();
+                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    {
+                        mainApp();
+                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    {   
+                        Console.WriteLine("Delogare reusita");
+                    }    
                     break;
                 default: Console.WriteLine("Delogare reusita");
                     runApp(); 

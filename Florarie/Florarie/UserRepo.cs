@@ -48,7 +48,7 @@ public class UserRepo
     {
         if (users.ContainsKey(utilizator.cod))
         {
-            Console.WriteLine("Already existing code");
+            Console.WriteLine("Cod deja existent");
             return false;
         }
 
