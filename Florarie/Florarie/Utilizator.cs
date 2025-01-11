@@ -7,11 +7,7 @@ public class Utilizator
     public string prenume { get; set; }
     public string email { get; set; }
     public string parola { get; set; }
-
-    public Utilizator()
-    {
-
-    }
+    
 
     public Utilizator(string cod, string nume, string prenume, string email, string parola)
     {

@@ -8,8 +8,8 @@ public static class Program
     {
         UserRepo repo = new UserRepo("D:\\Faculta\\POO\\Florarie\\Florarie\\users.txt");
         UserService service = new UserService(repo);
-        UI ui = new UI(service);
-        ui.runApp();
+        Meniu meniu = new Meniu(service);
+        meniu.runApp();
         
     }
 }

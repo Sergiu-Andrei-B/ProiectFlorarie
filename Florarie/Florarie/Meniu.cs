@@ -1,6 +1,6 @@
 namespace Florarie;
 
-public class UI
+public class Meniu
 {
     private UserService userService;
     private Utilizator currentUser = null;
@@ -8,18 +8,18 @@ public class UI
     private void welcomeMenu()
     {
         Console.WriteLine("1 - Login");
-        Console.WriteLine("2 - Register");
-        Console.WriteLine("Anything else - Exit");
+        Console.WriteLine("2 - Inregistrare");
+        Console.WriteLine("Alta optiune - IESIRE");
     }
 
-    public UI(UserService userService)
+    public Meniu(UserService userService)
     {
         this.userService = userService;
     }
 
     private void mainApp()
     {
-        Console.WriteLine("Welcome " + currentUser.prenume);
+        Console.WriteLine("Buna ziua " + currentUser.prenume);
         if (currentUser.cod.StartsWith('a'))
         {
             // angajat functionalities
@@ -30,7 +30,7 @@ public class UI
             Console.WriteLine("3 - Preluare materie pentru buchete");
             Console.WriteLine("4 - Preluare comanda buchet");
             Console.WriteLine("5 - Finalizare comanda");
-            Console.WriteLine("Anything else - Exit");
+            Console.WriteLine("Alta optiune - IESIRE");
             Console.WriteLine("Introduceti optiunea");
             cod1 = Console.ReadLine();
             switch (cod1)
@@ -60,7 +60,7 @@ public class UI
             Console.WriteLine("3 - Vizualizare detalii comanda");
             Console.WriteLine("4 - Ridicare comanda");
             Console.WriteLine("5 - Review comanda");
-            Console.WriteLine("Anything else - Exit");
+            Console.WriteLine("Alta optiune - IESIRE");
             Console.WriteLine("Introduceti optiunea");
             cod2 = Console.ReadLine();
             switch (cod2)
@@ -87,7 +87,7 @@ public class UI
         bool loggedIn = false;
         while (!loggedIn)
         {
-            Console.WriteLine("Enter unique code: ");
+            Console.WriteLine("Introduceti codul unic ");
             string userInput = Console.ReadLine();
             Utilizator currentUser = userService.findOne(userInput);
             if (currentUser != null)
@@ -101,13 +101,13 @@ public class UI
                 bool logged = false;
                 while (!logged)
                 {
-                    Console.WriteLine("1 - Enter unique code again: ");
-                    Console.WriteLine("Anything else - Back to main menu");
+                    Console.WriteLine("1 - Introduceti codul unic din nou: ");
+                    Console.WriteLine("Alta optiune - Intoarcere la meniul principal");
                     string userInput1 = Console.ReadLine();
                 
                     if (userInput1.Equals("1"))
                     {
-                        Console.WriteLine("Enter unique code: ");
+                        Console.WriteLine("Introduceti codul unic: ");
                         string userInput2 = Console.ReadLine();
                         currentUser = userService.findOne(userInput2);
                         if (currentUser != null)
@@ -159,7 +159,7 @@ public class UI
         while (stillRunning)
         {
             welcomeMenu();
-            Console.WriteLine("Input: ");
+            Console.WriteLine("Alegeti optiunea: ");
             string userInput = Console.ReadLine();
             if (userInput.Equals("1"))
             {
