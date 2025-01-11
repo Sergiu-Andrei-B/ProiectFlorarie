@@ -245,12 +245,20 @@ public class Meniu
         string userEmail = Console.ReadLine();
         Console.WriteLine("Parola: ");
         string userPassword = Console.ReadLine();
-        
-        Utilizator newUser = new Utilizator(userCode, userNume, userPrenume, userEmail, userPassword);
-        if (userService.add(newUser))
+
+        Utilizator newUser;
+        if (userCode.StartsWith("a"))
         {
-            currentUser = newUser;
-            mainApp();
+            newUser = new Angajat(userCode,userNume,userPrenume,userEmail,userPassword);
+        }
+        else if (userCode.StartsWith("b"))
+        {
+            newUser = new Client(userCode, userNume, userPrenume, userEmail,userPassword);
+        }
+        else
+        {
+           Console.WriteLine("Codul introdus este invalid ! ");
+           return;
         }
     }
 

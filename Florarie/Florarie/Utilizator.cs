@@ -1,6 +1,6 @@
 namespace Florarie;
 
-public class Utilizator
+public abstract class Utilizator
 {
     public string cod { get; set; }
     public string nume { get; set; }
