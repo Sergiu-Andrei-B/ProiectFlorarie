@@ -24,7 +24,7 @@ public class Meniu
         {
             // functionalitati angajat
             string cod1;
-            Console.WriteLine("Angajat logat");
+            Console.WriteLine("Angajat logat cu sudces ! ");
             Console.WriteLine("1 - Viziualizare comenzi");
             Console.WriteLine("2 - Comanda materie pentru buchete");
             Console.WriteLine("3 - Preluare materie pentru buchete");
@@ -288,3 +288,4 @@ public class Meniu
         }
     }
 }
+// Ia vedeti daca va apare 
