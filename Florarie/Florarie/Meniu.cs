@@ -20,9 +20,9 @@ public class Meniu
     private void mainApp()
     {
         Console.WriteLine("Buna ziua " + currentUser.prenume);
-        if (currentUser.cod.StartsWith('a'))
+        if (currentUser is Angajat angajat)
         {
-            // angajat functionalities
+            // functionalitati angajat
             string cod1;
             Console.WriteLine("Angajat logat");
             Console.WriteLine("1 - Viziualizare comenzi");
@@ -50,9 +50,9 @@ public class Meniu
                     break;
             }
         }
-        else
+        else if(currentUser is Client client)
         {
-            // client functionalities
+            // functionalitati client
             string cod2;
             Console.WriteLine("Client logat");
             Console.WriteLine("1 - Comanda de buchet");
@@ -65,9 +65,9 @@ public class Meniu
             cod2 = Console.ReadLine();
             switch (cod2)
             {
-                case "1":
+                case "1": 
                     break;
-                case "2":
+                case "2": 
                     break;  
                 case "3":
                     break;
