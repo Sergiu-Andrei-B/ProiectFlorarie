@@ -6,10 +6,9 @@ public static class Program
 {
     public static void Main()
     {
-        UserRepo repo = new UserRepo("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+        UserRepo repo = new UserRepo("E:\\ProiectePOO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
         UserService service = new UserService(repo);
         Meniu meniu = new Meniu(service);
         meniu.runApp();
-        
     }
 }

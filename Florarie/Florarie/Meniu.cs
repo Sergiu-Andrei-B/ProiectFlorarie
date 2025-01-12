@@ -39,11 +39,12 @@ public class Meniu
                 case "1":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod4=Console.ReadLine();
-                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    cod4 = Console.ReadLine().ToLower();
+                    if (cod4 == "da")
                     {
                         mainApp();
-                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    }
+                    else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -51,11 +52,12 @@ public class Meniu
                 case "2":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod4=Console.ReadLine();
-                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    cod4 = Console.ReadLine().ToLower();
+                    if (cod4 == "da")
                     {
                         mainApp();
-                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    }
+                    else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -63,23 +65,25 @@ public class Meniu
                 case "3":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod4=Console.ReadLine();
-                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    cod4 = Console.ReadLine().ToLower();
+                    if (cod4 == "da")
                     {
                         mainApp();
-                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    }
+                    else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
-                    }    
+                    }       
                     break;
                 case "4":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod4=Console.ReadLine();
-                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    cod4 = Console.ReadLine().ToLower();
+                    if (cod4 == "da")
                     {
                         mainApp();
-                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    }
+                    else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -87,14 +91,15 @@ public class Meniu
                 case "5":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod4=Console.ReadLine();
-                    if (cod4 == "Da" || cod4 == "da"||cod4 == "DA")
+                    cod4 = Console.ReadLine().ToLower();
+                    if (cod4 == "da")
                     {
                         mainApp();
-                    }else if (cod4 == "Nu" || cod4 == "nu" || cod4 == "NU" || cod4!="Da" || cod4!="DA" || cod4!="da")
+                    }
+                    else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
-                    }    
+                    }        
                     break;
                 default: Console.WriteLine("Delogare reusita");
                     runApp(); 
@@ -120,11 +125,11 @@ public class Meniu
                 case "1": 
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod3=Console.ReadLine();
-                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    cod3 = Console.ReadLine().ToLower();
+                    if (cod3 == "da")
                     {
                         mainApp();
-                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    }else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -133,10 +138,11 @@ public class Meniu
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3=Console.ReadLine();
-                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    if (cod3 == "da")
                     {
                         mainApp();
-                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    }
+                    else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -144,15 +150,17 @@ public class Meniu
                 case "3":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod3=Console.ReadLine();
-                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    cod3 = Console.ReadLine().ToLower();
+                    if (cod3 == "da")
                     {
                         mainApp();
-                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    }
+                    else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
                     break;
+                
                 case "4":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
@@ -160,7 +168,8 @@ public class Meniu
                     if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
                     {
                         mainApp();
-                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    }
+                    else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -168,11 +177,12 @@ public class Meniu
                 case "5":
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
-                    cod3=Console.ReadLine();
-                    if (cod3 == "Da" || cod3 == "da"||cod3 == "DA")
+                    cod3 = Console.ReadLine().ToLower();
+                    if (cod3 == "da")
                     {
                         mainApp();
-                    }else if (cod3 == "Nu" || cod3 == "nu" || cod3 == "NU" || cod3!="Da" || cod3!="DA" || cod3!="da")
+                    }
+                    else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
                     }    
@@ -250,15 +260,19 @@ public class Meniu
         if (userCode.StartsWith("a"))
         {
             newUser = new Angajat(userCode,userNume,userPrenume,userEmail,userPassword);
+            currentUser = newUser;
+            mainApp();
         }
         else if (userCode.StartsWith("b"))
         {
             newUser = new Client(userCode, userNume, userPrenume, userEmail,userPassword);
+            currentUser = newUser;
+            mainApp();
         }
         else
         {
-           Console.WriteLine("Codul introdus este invalid ! ");
-           return;
+            Console.WriteLine("Codul introdus este invalid ! ");
+            return;
         }
     }
 
