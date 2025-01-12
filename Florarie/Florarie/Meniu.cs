@@ -52,6 +52,12 @@ public class Meniu
                     }    
                     break;
                 case "2":
+                    Console.WriteLine("Descriere materie: ");
+                    string descriereMaterie = Console.ReadLine();
+                    int codUnic = new Random().Next(0, 1000);
+                    var comandaMaterie = new ComandaMaterie(descriereMaterie, codUnic, ComandaMaterie.StatusMaterie.InAsteptare);
+                    gestionareComenzi.AddComandaMaterie(comandaMaterie);
+                    Console.WriteLine($"Comanda cu codul {codUnic} a fost adaugata cu succes!");
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
@@ -134,6 +140,8 @@ public class Meniu
                     int codComanda = new Random().Next(1, 1000);
                     var comandaNoua = new ComandaBuchet(descriere, codComanda, nume, nrTel, ComandaBuchet.Status.InPreluare);
                     gestionareComenzi.AddComandaBuchet(comandaNoua);
+                    Console.WriteLine($"Comanda cu numarul {codComanda}, aflata pe numele {nume} a fost plasata cu succes!");
+                    Console.WriteLine("Status - In Preluare");
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3 = Console.ReadLine().ToLower();
