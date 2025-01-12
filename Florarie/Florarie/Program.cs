@@ -8,7 +8,8 @@ public static class Program
     {
         UserRepo repo = new UserRepo("E:\\ProiectePOO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
         UserService service = new UserService(repo);
-        Meniu meniu = new Meniu(service);
+        GestionareComenzi gestionareComenzi = new GestionareComenzi();
+        Meniu meniu = new Meniu(service, gestionareComenzi);
         meniu.runApp();
     }
 }

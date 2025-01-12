@@ -4,6 +4,7 @@ public class Meniu
 {
     private UserService userService;
     private Utilizator currentUser = null;
+    private GestionareComenzi gestionareComenzi;
 
     private void welcomeMenu()
     {
@@ -12,9 +13,10 @@ public class Meniu
         Console.WriteLine("Alta optiune - IESIRE");
     }
 
-    public Meniu(UserService userService)
+    public Meniu(UserService userService, GestionareComenzi gestionareComenzi)
     {
         this.userService = userService;
+        this.gestionareComenzi = gestionareComenzi;
     }
 
     private void mainApp()
@@ -123,6 +125,15 @@ public class Meniu
             switch (cod2)
             {
                 case "1": 
+                    Console.WriteLine("Introduceti descrierea buchetului: ");
+                    string descriere = Console.ReadLine();
+                    Console.WriteLine("Introduceti numele dumneavoastra:");
+                    string nume = Console.ReadLine();
+                    Console.WriteLine("Introduceti numarul de telefon: ");
+                    string nrTel = Console.ReadLine();
+                    int codComanda = new Random().Next(1, 1000);
+                    var comandaNoua = new ComandaBuchet(descriere, codComanda, nume, nrTel, ComandaBuchet.Status.InPreluare);
+                    gestionareComenzi.AddComandaBuchet(comandaNoua);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3 = Console.ReadLine().ToLower();
