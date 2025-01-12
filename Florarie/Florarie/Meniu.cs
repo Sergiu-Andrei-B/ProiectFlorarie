@@ -24,7 +24,7 @@ public class Meniu
         {
             // functionalitati angajat
             string cod1;
-            Console.WriteLine("Angajat logat cu sudces ! ");
+            Console.WriteLine("Angajat logat cu succes ! ");
             Console.WriteLine("1 - Viziualizare comenzi");
             Console.WriteLine("2 - Comanda materie pentru buchete");
             Console.WriteLine("3 - Preluare materie pentru buchete");
