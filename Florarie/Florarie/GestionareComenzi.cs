@@ -165,6 +165,10 @@ public class GestionareComenzi
                 Console.WriteLine($"Statusul comenzii : {comanda.StatusBuchet}");
                 Console.WriteLine("-------------------------------------------");
             }
+            else
+            {
+                Console.WriteLine("Nu exista utilizatorul ! / Comanda nefinalizata !");
+            }
         }
     }
 
@@ -182,6 +186,10 @@ public class GestionareComenzi
                 Console.WriteLine($"Descrierea buchetului : {comanda.DescriereComanda}");
                 Console.WriteLine($"Statusul comenzii : {comanda.StatusBuchet}");
                 Console.WriteLine("-------------------------------------------");
+            }
+            else
+            {
+                Console.WriteLine("Cod invalid !");
             }
         }
     }
