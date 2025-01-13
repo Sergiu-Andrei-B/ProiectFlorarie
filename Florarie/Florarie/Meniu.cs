@@ -191,6 +191,10 @@ public class Meniu
                     break;
                 
                 case "4":
+                    Console.WriteLine("Introduceti codul comenzii: ");
+                    int codRevendicare = int.Parse(Console.ReadLine());
+                    string rezultatRevendicare = gestionareComenzi.RidicareComanda(codRevendicare);
+                    Console.WriteLine(rezultatRevendicare);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3=Console.ReadLine();

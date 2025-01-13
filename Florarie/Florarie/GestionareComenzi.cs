@@ -73,7 +73,24 @@ public class GestionareComenzi
         angajat.comandaCurenta.StatusBuchet = ComandaBuchet.Status.Finalizat;
         int codFinalizat = angajat.comandaCurenta.CodComanda;
         angajat.comandaCurenta = null;
-        return $"Comanda cu codul {codFinalizat} a fost finalizata. Va multumim ca ati apelat la noi!";
+        return $"Comanda cu codul {codFinalizat} a fost finalizata.";
+    }
+
+    public string RidicareComanda(int codComandaBuchet)
+    {
+        var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codComandaBuchet);
+        if (comanda == null)
+        {
+            return "Comanda nu a fost gasita.";
+        }
+
+        if (comanda.StatusBuchet != ComandaBuchet.Status.Finalizat)
+        {
+            return "Comanda nu a fost finalizata inca.";
+        }
+
+        comanda.StatusBuchet = ComandaBuchet.Status.Revendicat;
+        return "Comanda a fost revendicata cu succes. Multumim ca ati apelat la noi si va mai asteptam curand!";
     }
     
 }
