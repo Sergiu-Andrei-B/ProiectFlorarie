@@ -130,4 +130,20 @@ public class GestionareComenzi
             Console.WriteLine("-------------------------------------------");
         }
     }
+    
+    public bool ValidareNrTelefon(string NrTelefon)
+    {
+        foreach (char c in NrTelefon)
+        {
+            if (!char.IsDigit(c))
+            {
+                return false;
+            }
+        }
+        if (NrTelefon.Length != 10 || string.IsNullOrEmpty(NrTelefon))
+        {
+            return false;
+        }
+        return true;
+    }
 }

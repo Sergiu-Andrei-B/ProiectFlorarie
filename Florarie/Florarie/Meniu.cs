@@ -157,6 +157,11 @@ public class Meniu
                     string nume = Console.ReadLine();
                     Console.WriteLine("Introduceti numarul de telefon: ");
                     string nrTel = Console.ReadLine();
+                    while (gestionareComenzi.ValidareNrTelefon(nrTel) == false)
+                    {
+                        Console.WriteLine("Introduceti numarul de telefon din nou: ");
+                        nrTel = Console.ReadLine();
+                    }
                     int codComanda = new Random().Next(1, 1000);
                     var comandaNoua = new ComandaBuchet(descriere, codComanda, nume, nrTel, ComandaBuchet.Status.InPreluare);
                     gestionareComenzi.AddComandaBuchet(comandaNoua);
@@ -327,11 +332,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');

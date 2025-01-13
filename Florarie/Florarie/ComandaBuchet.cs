@@ -18,23 +18,6 @@ public class ComandaBuchet : Comanda
         StatusBuchet = statusBuchet;
     }
 
-    public bool ValidareNrTelefon(string NrTelefon)
-    {
-        foreach (char c in NrTelefon)
-        {
-            if (!char.IsDigit(c))
-            {
-                return false;
-            }
-        }
-        if (NrTelefon.Length != 10 || string.IsNullOrEmpty(NrTelefon))
-        {
-            return false;
-        }
-
-        return true;
-    }
-
     public bool MaterialeDisponibileVerificare()
     {
         return Materiale.All(material => material.Status == ComandaMaterie.StatusMaterie.Finalizat);
