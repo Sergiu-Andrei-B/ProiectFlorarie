@@ -34,4 +34,22 @@ public class GestionareComenzi
             return "Materialele necesare nu sunt încă disponibile.";
         }
     }
+
+    public string PreiaComandaMaterie(int codMaterie)
+    {
+        var comanda = ComenziMaterie.FirstOrDefault(Comanda => Comanda.CodComanda == codMaterie);
+        if (comanda == null)
+        {
+            return "Comanda de materie nu a fost gasita.";
+        }
+
+        if (comanda.Status == ComandaMaterie.StatusMaterie.Finalizat)
+        {
+            return "Comanda de materie este deja finalizata.";
+        }
+        
+        comanda.Status = ComandaMaterie.StatusMaterie.Finalizat;
+        return $"Comanda de materie cu codul {codMaterie} a fost finalizata.";
+    }
+    
 }

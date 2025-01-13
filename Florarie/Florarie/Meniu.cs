@@ -71,6 +71,10 @@ public class Meniu
                     }    
                     break;  
                 case "3":
+                    Console.WriteLine("Introduceti codul comenzii pentru a fi preluata: ");
+                    int codMaterie = int.Parse(Console.ReadLine());
+                    string rezultat = gestionareComenzi.PreiaComandaMaterie(codMaterie);
+                    Console.WriteLine(rezultat);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
@@ -291,7 +295,7 @@ public class Meniu
         else
         {
             Console.WriteLine("Codul introdus este invalid ! ");
-            return;
+            handleRegister();
         }
     }
 
