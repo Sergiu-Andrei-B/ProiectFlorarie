@@ -50,6 +50,7 @@ public class Meniu
                     else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 case "2":
@@ -69,6 +70,7 @@ public class Meniu
                     else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;  
                 case "3":
@@ -86,6 +88,7 @@ public class Meniu
                     else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }       
                     break;
                 case "4":
@@ -114,6 +117,7 @@ public class Meniu
                     else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 case "5":
@@ -130,6 +134,7 @@ public class Meniu
                     else if (cod4 == "nu" || cod4 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }        
                     break;
                 default: Console.WriteLine("Delogare reusita");
@@ -179,6 +184,7 @@ public class Meniu
                     }else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 case "2": 
@@ -193,6 +199,7 @@ public class Meniu
                     else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;  
                 case "3":
@@ -208,6 +215,7 @@ public class Meniu
                     else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 
@@ -226,6 +234,7 @@ public class Meniu
                     else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 case "5": 
@@ -247,6 +256,7 @@ public class Meniu
                     else if (cod3 == "nu" || cod3 != "da")
                     {   
                         Console.WriteLine("Delogare reusita");
+                        runApp();
                     }    
                     break;
                 default: Console.WriteLine("Delogare reusita");
@@ -339,11 +349,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');
@@ -393,12 +403,14 @@ public class Meniu
         if (userCode.StartsWith("a"))
         {
             newUser = new Angajat(userCode,userNume,userPrenume,userEmail,userPassword);
+            userService.add(newUser);
             currentUser = newUser;
             mainApp();
         }
         else if (userCode.StartsWith("b"))
         {
             newUser = new Client(userCode, userNume, userPrenume, userEmail,userPassword);
+            userService.add(newUser);
             currentUser = newUser;
             mainApp();
         }
