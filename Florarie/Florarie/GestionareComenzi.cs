@@ -111,4 +111,23 @@ public class GestionareComenzi
         return $"Review-ul a fost adaugat cu succes pentru comanda {codReview} a lui {Client}. Numar stele - {nrStele}.";
     }
 
+    public void VizualizareComenziClienti()
+    {
+        foreach (var comanda in ComenziBuchet)
+        {
+            if (comanda == null)
+            {
+                Console.WriteLine("Nu exista nicio comanda!");
+                return;
+            }
+            Console.WriteLine("-------------------------------------------");
+            Console.WriteLine("Detalii comanda : ");
+            Console.WriteLine($"Numar comanda : {comanda.CodComanda}");
+            Console.WriteLine($"Numele clientului : {comanda.NumeClient}");
+            Console.WriteLine($"Numar de telefon : {comanda.NrTelefon}");
+            Console.WriteLine($"Descrierea buchetului : {comanda.DescriereComanda}");
+            Console.WriteLine($"Statusul comenzii : {comanda.StatusBuchet}");
+            Console.WriteLine("-------------------------------------------");
+        }
+    }
 }

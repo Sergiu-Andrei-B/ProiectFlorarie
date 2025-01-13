@@ -39,7 +39,7 @@ public class Meniu
             switch (cod1)
             {
                 case "1":
-                    
+                    gestionareComenzi.VizualizareComenziClienti();
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
                     if (cod4 == "da")
@@ -177,7 +177,6 @@ public class Meniu
                     }    
                     break;  
                 case "3":
-                    
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3 = Console.ReadLine().ToLower();
                     if (cod3 == "da")
@@ -318,11 +317,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');
