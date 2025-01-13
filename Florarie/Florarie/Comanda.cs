@@ -11,5 +11,4 @@ public abstract class Comanda
         CodComanda = codComanda;
     }
     
-        
 }

@@ -71,7 +71,7 @@ public class Meniu
                     }    
                     break;  
                 case "3":
-                    Console.WriteLine("Introduceti codul comenzii pentru a fi preluata: ");
+                    Console.WriteLine("Introduceti codul comenzii de materie pentru a fi preluata: ");
                     int codMaterie = int.Parse(Console.ReadLine());
                     string rezultat = gestionareComenzi.PreiaComandaMaterie(codMaterie);
                     Console.WriteLine(rezultat);
@@ -88,6 +88,10 @@ public class Meniu
                     }       
                     break;
                 case "4":
+                    Console.WriteLine("Introduceti codul comenzii de buchet pentru a fi preluata: ");
+                    int codBuchet = int.Parse(Console.ReadLine());
+                    string rezultatComanda = gestionareComenzi.PreiaComandaBuchet(codBuchet, angajat);
+                    Console.WriteLine(rezultatComanda);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
@@ -101,6 +105,8 @@ public class Meniu
                     }    
                     break;
                 case "5":
+                    string rezultatFinalizare = gestionareComenzi.FinalizareComanda(angajat);
+                    Console.WriteLine(rezultatFinalizare);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
@@ -325,4 +331,3 @@ public class Meniu
         }
     }
 }
-// Ia vedeti daca va apare 

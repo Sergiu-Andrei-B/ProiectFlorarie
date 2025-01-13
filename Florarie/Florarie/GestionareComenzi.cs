@@ -15,18 +15,29 @@ public class GestionareComenzi
         ComenziBuchet.Add(comanda);
     }
     
-    public string PreiaComandaBuchet(int codComandaBuchet)
+    public string PreiaComandaBuchet(int codComandaBuchet, Angajat angajat)
     {
+        if (angajat.comandaCurenta != null)
+        {
+            return $"Este deja o comanda in lucru cu codul {angajat.comandaCurenta.CodComanda}";
+        }
+        
         var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codComandaBuchet);
         if (comanda == null)
         {
             return "Comanda de buchet nu a fost găsită.";
         }
 
+        if (comanda.StatusBuchet != ComandaBuchet.Status.InPreluare)
+        {
+            return "Comanda nu este disponibila pentru a fi preluata.";
+        }
+        
         if (comanda.MaterialeDisponibileVerificare())
         {
             comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
-            return "Comanda de buchet a fost preluată și este în lucru.";
+            angajat.comandaCurenta = comanda;
+            return $"Comanda de buchet cu codul {codComandaBuchet} a fost preluată si este în lucru.";
         }
         else
         {
@@ -50,6 +61,19 @@ public class GestionareComenzi
         
         comanda.Status = ComandaMaterie.StatusMaterie.Finalizat;
         return $"Comanda de materie cu codul {codMaterie} a fost finalizata.";
+    }
+
+    public string FinalizareComanda(Angajat angajat)
+    {
+        if (angajat.comandaCurenta == null)
+        {
+            return "Angajatul nu are nicio comanda in momentul de fata.";
+        }
+
+        angajat.comandaCurenta.StatusBuchet = ComandaBuchet.Status.Finalizat;
+        int codFinalizat = angajat.comandaCurenta.CodComanda;
+        angajat.comandaCurenta = null;
+        return $"Comanda cu codul {codFinalizat} a fost finalizata. Va multumim ca ati apelat la noi!";
     }
     
 }
