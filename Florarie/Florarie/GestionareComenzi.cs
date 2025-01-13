@@ -167,4 +167,22 @@ public class GestionareComenzi
             }
         }
     }
+
+    public void VizualizareDetaliiComanda(int codComanda)
+    {
+        foreach (var comanda in ComenziBuchet)
+        {
+            if (comanda.CodComanda == codComanda)
+            {
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine("Detalii comanda ");
+                Console.WriteLine($"Numar comanda : {comanda.CodComanda}");
+                Console.WriteLine($"Numele clientului : {comanda.NumeClient}");
+                Console.WriteLine($"Numar de telefon : {comanda.NrTelefon}");
+                Console.WriteLine($"Descrierea buchetului : {comanda.DescriereComanda}");
+                Console.WriteLine($"Statusul comenzii : {comanda.StatusBuchet}");
+                Console.WriteLine("-------------------------------------------");
+            }
+        }
+    }
 }

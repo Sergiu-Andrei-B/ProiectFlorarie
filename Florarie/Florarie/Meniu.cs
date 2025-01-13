@@ -193,6 +193,9 @@ public class Meniu
                     }    
                     break;  
                 case "3":
+                    Console.WriteLine("Introduceti codul comenzii: ");
+                    int codDetalii = int.Parse(Console.ReadLine());
+                    gestionareComenzi.VizualizareDetaliiComanda(codDetalii);
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3 = Console.ReadLine().ToLower();
                     if (cod3 == "da")
