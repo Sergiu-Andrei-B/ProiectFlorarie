@@ -5,6 +5,7 @@ public class Meniu
     private UserService userService;
     private Utilizator currentUser = null;
     private GestionareComenzi gestionareComenzi;
+    private int Contor = 0;
 
     public void welcomeMenu()
     {
@@ -27,7 +28,7 @@ public class Meniu
             // functionalitati angajat
             string cod1;
             Console.WriteLine("Angajat logat cu succes ! ");
-            Console.WriteLine("1 - Viziualizare comenzi");
+            Console.WriteLine("1 - Vizualizare comenzi");
             Console.WriteLine("2 - Comanda materie pentru buchete");
             Console.WriteLine("3 - Preluare materie pentru buchete");
             Console.WriteLine("4 - Preluare comanda buchet");
@@ -88,11 +89,19 @@ public class Meniu
                     }       
                     break;
                 case "4":
-                    Console.WriteLine("Introduceti codul comenzii de buchet pentru a fi preluata: ");
-                    int codBuchet = int.Parse(Console.ReadLine());
-                    string rezultatComanda = gestionareComenzi.PreiaComandaBuchet(codBuchet, angajat);
-                    Console.WriteLine(rezultatComanda);
-                    
+                    if (Contor == 0)
+                    {
+                        Console.WriteLine("Introduceti codul comenzii de buchet pentru a fi preluata: ");
+                        int codBuchet = int.Parse(Console.ReadLine());
+                        string rezultatComanda = gestionareComenzi.PreiaComandaBuchet(codBuchet, angajat);
+                        Console.WriteLine(rezultatComanda);
+                        Contor++;
+                    }
+                    else
+                    {
+                        Console.WriteLine("O alta comanda este deja in desfasurare.");
+                    }
+
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
                     if (cod4 == "da")
@@ -107,6 +116,7 @@ public class Meniu
                 case "5":
                     string rezultatFinalizare = gestionareComenzi.FinalizareComanda(angajat);
                     Console.WriteLine(rezultatFinalizare);
+                    Contor--;
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
