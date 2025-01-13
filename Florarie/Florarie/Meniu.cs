@@ -6,7 +6,7 @@ public class Meniu
     private Utilizator currentUser = null;
     private GestionareComenzi gestionareComenzi;
 
-    private void welcomeMenu()
+    public void welcomeMenu()
     {
         Console.WriteLine("1 - Login");
         Console.WriteLine("2 - Inregistrare");
@@ -274,8 +274,79 @@ public class Meniu
             }
         }
     }
-    
 
+    public void adaugareUtilizator()
+    {
+        Console.WriteLine("Code: ");
+        string userCode = Console.ReadLine();
+        Console.WriteLine("Nume: ");
+        string userNume = Console.ReadLine();
+        Console.WriteLine("Prenume: ");
+        string userPrenume = Console.ReadLine();
+        Console.WriteLine("Email: ");
+        string userEmail = Console.ReadLine();
+        Console.WriteLine("Parola: ");
+        string userPassword = Console.ReadLine();
+        Utilizator newUser;
+        if (userCode.StartsWith("a"))
+        {
+            newUser = new Angajat(userCode,userNume,userPrenume,userEmail,userPassword);
+            userService.add(newUser);
+            currentUser = newUser;
+            startMeniu();
+        }
+        else if (userCode.StartsWith("b"))
+        {
+            newUser = new Client(userCode, userNume, userPrenume, userEmail,userPassword);
+            userService.add(newUser);
+            currentUser = newUser;
+            startMeniu();
+        }
+        else
+        {
+            Console.WriteLine("Codul introdus este invalid ! ");
+            adaugareUtilizator();
+        }
+    }
+    public void startMeniu()
+    {
+        if (File.Exists("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        {
+            int codA=0,codB=0;
+            
+            string[] linii = File.ReadAllLines("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            foreach (var linie in linii)
+            {
+                string[] parts = linie.Split('|');
+                if (parts.Length > 0)
+                {
+                    string cod = parts[0];
+                    if (cod.StartsWith('a'))
+                    {
+                        codA++;
+                    }
+
+                    if (cod.StartsWith('b'))
+                    {
+                        codB++;
+                    }
+                }
+                    
+            }
+            if (codA >= 1 && codB >= 2)
+            {
+                runApp();
+            }
+            else
+            {
+                Console.WriteLine("Nu sunt suficienti angajati/clienti(minim un angajat si 2 clienti)");
+                Console.WriteLine($"Exista {codA} angajati si {codB} clienti");
+                Console.WriteLine("Adaugati membrii necesari!!!");
+                adaugareUtilizator();
+            }
+        }
+    }
+    
     private void handleRegister()
     {
         Console.WriteLine("Code: ");

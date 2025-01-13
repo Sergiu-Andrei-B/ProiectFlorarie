@@ -92,5 +92,6 @@ public class GestionareComenzi
         comanda.StatusBuchet = ComandaBuchet.Status.Revendicat;
         return "Comanda a fost revendicata cu succes. Multumim ca ati apelat la noi si va mai asteptam curand!";
     }
+
     
 }

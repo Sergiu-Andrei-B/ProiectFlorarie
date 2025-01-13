@@ -21,16 +21,22 @@ public class UserRepo
         }
     }
 
-    private void write()
-    {
-        using (StreamWriter writer = new StreamWriter(path))
-        {
-            foreach (var user in users.Values)
+    
+        
+            private void write()
             {
-                writer.WriteLine(user);
+                using (StreamWriter writer = new StreamWriter(path))
+                {
+                    foreach (var user in users.Values)
+                    {
+                        writer.WriteLine(user);
+                    }
+                }
             }
-        }
-    }
+
+            
+        
+    
 
     public Utilizator findOne(string cod)
     {
