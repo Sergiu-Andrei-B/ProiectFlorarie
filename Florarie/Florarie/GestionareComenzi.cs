@@ -4,6 +4,7 @@ public class GestionareComenzi
 {
     public List<ComandaMaterie> ComenziMaterie { get; set; } = new List<ComandaMaterie>();
     public List<ComandaBuchet> ComenziBuchet { get; set; } = new List<ComandaBuchet>();
+    public List<Review> Recenzii { get; set; } = new List<Review>();
 
     public void AddComandaMaterie(ComandaMaterie comanda)
     {
@@ -14,14 +15,14 @@ public class GestionareComenzi
     {
         ComenziBuchet.Add(comanda);
     }
-    
+
     public string PreiaComandaBuchet(int codComandaBuchet, Angajat angajat)
     {
         if (angajat.comandaCurenta != null)
         {
             return $"Este deja o comanda in lucru cu codul {angajat.comandaCurenta.CodComanda}";
         }
-        
+
         var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codComandaBuchet);
         if (comanda == null)
         {
@@ -32,7 +33,7 @@ public class GestionareComenzi
         {
             return "Comanda nu este disponibila pentru a fi preluata.";
         }
-        
+
         if (comanda.MaterialeDisponibileVerificare())
         {
             comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
@@ -58,7 +59,7 @@ public class GestionareComenzi
         {
             return "Comanda de materie este deja finalizata.";
         }
-        
+
         comanda.Status = ComandaMaterie.StatusMaterie.Finalizat;
         return $"Comanda de materie cu codul {codMaterie} a fost finalizata.";
     }
@@ -93,6 +94,21 @@ public class GestionareComenzi
         return "Comanda a fost revendicata cu succes. Multumim ca ati apelat la noi si va mai asteptam curand!";
     }
 
-    
-    
+    public string Review(int codReview, int nrStele, string Client)
+    {
+        var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codReview);
+        if (comanda == null)
+        {
+            return "Comanda nu exista.";
+        }
+
+        if (comanda.StatusBuchet != ComandaBuchet.Status.Revendicat)
+        {
+            return "Comanda nu a fost revendicata, deci nu exista.";
+        }
+        
+        Recenzii.Add(new Review(nrStele, codReview, Client));
+        return $"Review-ul a fost adaugat cu succes pentru comanda {codReview} a lui {Client}. Numar stele - {nrStele}.";
+    }
+
 }

@@ -207,7 +207,15 @@ public class Meniu
                         Console.WriteLine("Delogare reusita");
                     }    
                     break;
-                case "5":
+                case "5": 
+                    Console.WriteLine("Introduceti codul comenzii: ");
+                    int codReview = int.Parse(Console.ReadLine());
+                    Console.WriteLine("Introduceti numele: ");
+                    string numeReview = Console.ReadLine();
+                    Console.WriteLine("Cate stele acordati comenzii? ");
+                    int nrStele = int.Parse(Console.ReadLine());
+                    string rezultatReview = gestionareComenzi.Review(codReview, nrStele, numeReview);
+                    Console.WriteLine(rezultatReview);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3 = Console.ReadLine().ToLower();
@@ -310,11 +318,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');

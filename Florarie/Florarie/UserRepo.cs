@@ -23,16 +23,16 @@ public class UserRepo
 
     
         
-            private void write()
+    private void write()
+    {
+        using (StreamWriter writer = new StreamWriter(path))
+        {
+            foreach (var user in users.Values)
             {
-                using (StreamWriter writer = new StreamWriter(path))
-                {
-                    foreach (var user in users.Values)
-                    {
-                        writer.WriteLine(user);
-                    }
-                }
+                writer.WriteLine(user);
             }
+        }
+    }
 
             
         

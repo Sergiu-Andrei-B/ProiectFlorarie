@@ -6,10 +6,10 @@ public static class Program
 {
     public static void Main()
     {
-        UserRepo repo = new UserRepo("E:\\clonaFlorarie\\Florarie\\Florarie\\user.txt");
+        UserRepo repo = new UserRepo("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
         UserService service = new UserService(repo);
         GestionareComenzi gestionareComenzi = new GestionareComenzi();
         Meniu meniu = new Meniu(service, gestionareComenzi);
-        meniu.runApp();
+        meniu.startMeniu();
     }
 }
