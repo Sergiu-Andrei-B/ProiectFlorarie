@@ -106,9 +106,10 @@ public class GestionareComenzi
         {
             return "Comanda nu a fost revendicata, deci nu exista.";
         }
-        
+
         Recenzii.Add(new Review(nrStele, codReview, Client));
-        return $"Review-ul a fost adaugat cu succes pentru comanda {codReview} a lui {Client}. Numar stele - {nrStele}.";
+        return
+            $"Review-ul a fost adaugat cu succes pentru comanda {codReview} a lui {Client}. Numar stele - {nrStele}.";
     }
 
     public void VizualizareComenziClienti()
@@ -120,8 +121,9 @@ public class GestionareComenzi
                 Console.WriteLine("Nu exista nicio comanda!");
                 return;
             }
+
             Console.WriteLine("-------------------------------------------");
-            Console.WriteLine("Detalii comanda : ");
+            Console.WriteLine("Detalii comanda ");
             Console.WriteLine($"Numar comanda : {comanda.CodComanda}");
             Console.WriteLine($"Numele clientului : {comanda.NumeClient}");
             Console.WriteLine($"Numar de telefon : {comanda.NrTelefon}");
@@ -145,5 +147,24 @@ public class GestionareComenzi
             return false;
         }
         return true;
+    }
+    
+    
+    public void VizualizareIstoricComenzi(Client client )
+    {
+        foreach (var comanda in ComenziBuchet)
+        {
+            if ((client.prenume == comanda.NumeClient) && (comanda.StatusBuchet == ComandaBuchet.Status.Finalizat))
+            {
+                Console.WriteLine("-------------------------------------------");
+                Console.WriteLine("Detalii comanda ");
+                Console.WriteLine($"Numar comanda : {comanda.CodComanda}");
+                Console.WriteLine($"Numele clientului : {comanda.NumeClient}");
+                Console.WriteLine($"Numar de telefon : {comanda.NrTelefon}");
+                Console.WriteLine($"Descrierea buchetului : {comanda.DescriereComanda}");
+                Console.WriteLine($"Statusul comenzii : {comanda.StatusBuchet}");
+                Console.WriteLine("-------------------------------------------");
+            }
+        }
     }
 }

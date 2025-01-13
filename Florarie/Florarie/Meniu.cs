@@ -179,6 +179,7 @@ public class Meniu
                     }    
                     break;
                 case "2": 
+                    gestionareComenzi.VizualizareIstoricComenzi(client);
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod3=Console.ReadLine();
@@ -332,11 +333,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');
