@@ -95,7 +95,10 @@ public class Meniu
                         int codBuchet = int.Parse(Console.ReadLine());
                         string rezultatComanda = gestionareComenzi.PreiaComandaBuchet(codBuchet, angajat);
                         Console.WriteLine(rezultatComanda);
-                        Contor++;
+                        if(rezultatComanda.Equals($"Comanda de buchet cu codul {codBuchet} a fost preluată si este în lucru."))
+                        {
+                            Contor++;
+                        }
                     }
                     else
                     {
@@ -336,11 +339,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("C:\\Users\\Bobo\\RiderProjects\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("D:\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');

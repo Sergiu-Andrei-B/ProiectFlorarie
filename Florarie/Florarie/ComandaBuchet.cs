@@ -8,8 +8,6 @@ public class ComandaBuchet : Comanda
     public string NrTelefon  { get; set; }
     public Status StatusBuchet { get; set; }
     public List<ComandaMaterie> Materiale { get; set; } = new List<ComandaMaterie>();
-    public int? SteleReview { get; set; }
-    public string DescriereReview {get; set;}
 
     public ComandaBuchet(string DescriereComanda, int CodComanda, string numeClient, string nrTelefon, Status statusBuchet) : base(DescriereComanda, CodComanda)
     {

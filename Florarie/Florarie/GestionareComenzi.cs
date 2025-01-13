@@ -70,7 +70,7 @@ public class GestionareComenzi
         {
             return "Angajatul nu are nicio comanda in momentul de fata.";
         }
-
+        
         angajat.comandaCurenta.StatusBuchet = ComandaBuchet.Status.Finalizat;
         int codFinalizat = angajat.comandaCurenta.CodComanda;
         angajat.comandaCurenta = null;
