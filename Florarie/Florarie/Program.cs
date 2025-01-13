@@ -1,8 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using Florarie;
-using System;
-using System.IO;
 
 public static class Program
 {

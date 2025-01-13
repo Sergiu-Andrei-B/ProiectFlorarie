@@ -25,7 +25,7 @@ public class GestionareComenzi
         var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codComandaBuchet);
         if (comanda == null)
         {
-            return "Comanda de buchet nu a fost găsită.";
+            return "Comanda de buchet nu a fost găsită!";
         }
 
         if (comanda.StatusBuchet != ComandaBuchet.Status.InPreluare)
