@@ -167,7 +167,7 @@ public class GestionareComenzi
             }
             else
             {
-                Console.WriteLine("Nu exista utilizatorul ! / Comanda nefinalizata !");
+                Console.WriteLine("Istoricul dvs este gol!");
             }
         }
     }
