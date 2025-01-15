@@ -1,5 +1,3 @@
-a100|Zemora|Adrian|zemoraadrian@gmail.com|adadf
-b100|Birzu|Andrei|abirzu@gmail.com|adsadas
-b200|Boboiciov|Sergiu|bsergiu@gmail.com|dsafaf
-b777|Pandele|Bogdan|pb@gmail.com|asdda
-
+a100|Birzu|Andrei|birzandrei@gmail.com|12
+a200|Zemora|Adrian|zmadi@gmail.com|123
+b100|Boboiciov|Sergiu|boboserj@dobitoc.com|bou

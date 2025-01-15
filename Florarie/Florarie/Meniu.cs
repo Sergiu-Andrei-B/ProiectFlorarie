@@ -5,7 +5,6 @@ public class Meniu
     private UserService userService;
     private Utilizator currentUser = null;
     private GestionareComenzi gestionareComenzi;
-    private int Contor = 0;
 
     public void welcomeMenu()
     {
@@ -92,21 +91,10 @@ public class Meniu
                     }       
                     break;
                 case "4":
-                    if (Contor == 0)
-                    {
                         Console.WriteLine("Introduceti codul comenzii de buchet pentru a fi preluata: ");
                         int codBuchet = int.Parse(Console.ReadLine());
                         string rezultatComanda = gestionareComenzi.PreiaComandaBuchet(codBuchet, angajat);
                         Console.WriteLine(rezultatComanda);
-                        if(rezultatComanda.Equals($"Comanda de buchet cu codul {codBuchet} a fost preluată si este în lucru."))
-                        {
-                            Contor++;
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("O alta comanda este deja in desfasurare.");
-                    }
 
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();
@@ -123,7 +111,6 @@ public class Meniu
                 case "5":
                     string rezultatFinalizare = gestionareComenzi.FinalizareComanda(angajat);
                     Console.WriteLine(rezultatFinalizare);
-                    Contor--;
                     
                     Console.WriteLine("Doriti sa efectuati alta operatie ?(Da/Nu)");
                     cod4 = Console.ReadLine().ToLower();

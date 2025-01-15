@@ -34,17 +34,15 @@ public class GestionareComenzi
             return "Comanda nu este disponibila pentru a fi preluata.";
         }
 
-        if (comanda.MaterialeDisponibileVerificare())
-        {
-            comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
-            angajat.comandaCurenta = comanda;
-            return $"Comanda de buchet cu codul {codComandaBuchet} a fost preluată si este în lucru.";
-        }
-        else
+        if (!comanda.MaterialeDisponibileVerificare())
         {
             comanda.StatusBuchet = ComandaBuchet.Status.AsteptareMaterie;
-            return "Materialele necesare nu sunt încă disponibile.";
+            return $"Materialele necesare nu au fost inca comandate. Comanda este inca in asteptare";
         }
+        
+        comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
+        angajat.comandaCurenta = comanda;
+        return $"Comanda de buchet cu codul {codComandaBuchet} a fost preluata si este in asteptare.";
     }
 
     public string PreiaComandaMaterie(int codMaterie)
@@ -70,10 +68,16 @@ public class GestionareComenzi
         {
             return "Angajatul nu are nicio comanda in momentul de fata.";
         }
+
+        if (!angajat.comandaCurenta.MaterialeDisponibileVerificare())
+        {
+            return "Comanda nu poate fi finalizata deoarece materialele necesare nu sunt disponibile.";
+        }
         
         angajat.comandaCurenta.StatusBuchet = ComandaBuchet.Status.Finalizat;
         int codFinalizat = angajat.comandaCurenta.CodComanda;
         angajat.comandaCurenta = null;
+        
         return $"Comanda cu codul {codFinalizat} a fost finalizata.";
     }
 
