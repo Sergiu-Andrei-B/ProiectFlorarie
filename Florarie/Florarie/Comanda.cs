@@ -10,5 +10,9 @@ public abstract class Comanda
         DescriereComanda = descriereComanda;
         CodComanda = codComanda;
     }
-    
+
+    public override string ToString()
+    {
+        return $"Comanda:{DescriereComanda} cu codul:{CodComanda} a fost aduagata";
+    }
 }

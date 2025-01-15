@@ -20,5 +20,4 @@ public static class Utils
             throw new Exception("Tipul de utilizator este necunoscut.");
         }
     }
-    
 }

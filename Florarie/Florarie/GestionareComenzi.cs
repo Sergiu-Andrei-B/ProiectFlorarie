@@ -197,4 +197,63 @@ public class GestionareComenzi
             }
         }
     }
+
+    public void SalvareComenzi(string BuchetPath, string MateriePath)
+    {
+        using (StreamWriter writer = new StreamWriter(BuchetPath))
+        {
+            foreach (var comanda in ComenziBuchet)
+            {
+                writer.WriteLine($"{comanda.CodComanda}|{comanda.DescriereComanda}|{comanda.NumeClient}|{comanda.NrTelefon}|{comanda.StatusBuchet}");
+            }
+        }
+        
+        using (StreamWriter writer = new StreamWriter(MateriePath))
+        {
+            foreach (var comanda in ComenziMaterie)
+            {
+                writer.WriteLine($"{comanda.DescriereComanda}|{comanda.CodComanda}|{comanda.Status}");
+            }
+        }
+    }
+
+    public void IncarcareComenzi(string BuchetPath, string MateriePath)
+    {
+        if (File.Exists(BuchetPath))
+        {
+            var lines = File.ReadAllLines(BuchetPath);
+            foreach (var line in lines)
+            {
+                var parts = line.Split("|");
+                int codComanda = int.Parse(parts[0]);
+                string descriereComanda = parts[1];
+                string numeClient = parts[2];
+                string nrTelefon = parts[3];
+                if (!Enum.TryParse<ComandaBuchet.Status>(parts[4], ignoreCase: true, out var status))
+                {
+                    Console.WriteLine($"Status invalid: {parts[4]}");
+                    continue;
+                }
+                
+                var comanda = new ComandaBuchet(descriereComanda, codComanda, numeClient, nrTelefon, status);
+
+                ComenziBuchet.Add(comanda);
+            }
+        }
+
+        if (File.Exists(MateriePath))
+        {
+            var lines = File.ReadAllLines(MateriePath);
+            foreach (var line in lines)
+            {
+                var parts = line.Split("|");
+                int codComanda = int.Parse(parts[1]);
+                string descriere = parts[0];
+                var status = Enum.Parse<ComandaMaterie.StatusMaterie>(parts[2]);
+                
+                var comanda = new ComandaMaterie(descriere, codComanda, status);
+                ComenziMaterie.Add(comanda);
+            }
+        }
+    }
 }

@@ -1,3 +1,4 @@
 a100|Birzu|Andrei|birzandrei@gmail.com|12
 a200|Zemora|Adrian|zmadi@gmail.com|123
 b100|Boboiciov|Sergiu|boboserj@dobitoc.com|bou
+b200|Pandele|Bogdan|pandelebogdan@gmail.com|123
