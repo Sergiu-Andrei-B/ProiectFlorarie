@@ -336,11 +336,11 @@ public class Meniu
     }
     public void startMeniu()
     {
-        if (File.Exists("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
+        if (File.Exists("E:\\ProiectePOO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt"))
         {
             int codA=0,codB=0;
             
-            string[] linii = File.ReadAllLines("D:\\Faculta\\Anul 2\\Semestrul 1\\POO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
+            string[] linii = File.ReadAllLines("E:\\ProiectePOO\\ProiectFlorarie\\Florarie\\Florarie\\user.txt");
             foreach (var linie in linii)
             {
                 string[] parts = linie.Split('|');

@@ -5,15 +5,25 @@ public class GestionareComenzi
     public List<ComandaMaterie> ComenziMaterie { get; set; } = new List<ComandaMaterie>();
     public List<ComandaBuchet> ComenziBuchet { get; set; } = new List<ComandaBuchet>();
     public List<Review> Recenzii { get; set; } = new List<Review>();
+    private readonly string buchetPath;
+    private readonly string materiePath;
+
+    public GestionareComenzi(string buchetPath, string materiePath)
+    {
+        this.buchetPath = buchetPath;
+        this.materiePath = materiePath;
+    }
 
     public void AddComandaMaterie(ComandaMaterie comanda)
     {
         ComenziMaterie.Add(comanda);
+        SalvareComenzi();
     }
 
     public void AddComandaBuchet(ComandaBuchet comanda)
     {
         ComenziBuchet.Add(comanda);
+        SalvareComenzi();
     }
 
     public string PreiaComandaBuchet(int codComandaBuchet, Angajat angajat)
@@ -37,11 +47,12 @@ public class GestionareComenzi
         if (!comanda.MaterialeDisponibileVerificare())
         {
             comanda.StatusBuchet = ComandaBuchet.Status.AsteptareMaterie;
-            return $"Materialele necesare nu au fost inca comandate. Comanda este inca in asteptare";
+            return $"Materialele necesare nu sunt disponibile pentru aceasta comanda.";
         }
         
         comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
         angajat.comandaCurenta = comanda;
+        SalvareComenzi();
         return $"Comanda de buchet cu codul {codComandaBuchet} a fost preluata si este in asteptare.";
     }
 
@@ -59,6 +70,7 @@ public class GestionareComenzi
         }
 
         comanda.Status = ComandaMaterie.StatusMaterie.Finalizat;
+        SalvareComenzi();
         return $"Comanda de materie cu codul {codMaterie} a fost finalizata.";
     }
 
@@ -77,7 +89,7 @@ public class GestionareComenzi
         angajat.comandaCurenta.StatusBuchet = ComandaBuchet.Status.Finalizat;
         int codFinalizat = angajat.comandaCurenta.CodComanda;
         angajat.comandaCurenta = null;
-        
+        SalvareComenzi();
         return $"Comanda cu codul {codFinalizat} a fost finalizata.";
     }
 
@@ -95,6 +107,7 @@ public class GestionareComenzi
         }
 
         comanda.StatusBuchet = ComandaBuchet.Status.Revendicat;
+        SalvareComenzi();
         return "Comanda a fost revendicata cu succes. Multumim ca ati apelat la noi si va mai asteptam curand!";
     }
 
@@ -108,10 +121,11 @@ public class GestionareComenzi
 
         if (comanda.StatusBuchet != ComandaBuchet.Status.Revendicat)
         {
-            return "Comanda nu a fost revendicata, deci nu exista.";
+            return "Comanda nu a fost revendicata.";
         }
 
         Recenzii.Add(new Review(nrStele, codReview, Client));
+        SalvareComenzi();
         return
             $"Review-ul a fost adaugat cu succes pentru comanda {codReview} a lui {Client}. Numar stele - {nrStele}.";
     }
@@ -198,9 +212,9 @@ public class GestionareComenzi
         }
     }
 
-    public void SalvareComenzi(string BuchetPath, string MateriePath)
+    public void SalvareComenzi()
     {
-        using (StreamWriter writer = new StreamWriter(BuchetPath))
+        using (StreamWriter writer = new StreamWriter(buchetPath))
         {
             foreach (var comanda in ComenziBuchet)
             {
@@ -208,7 +222,7 @@ public class GestionareComenzi
             }
         }
         
-        using (StreamWriter writer = new StreamWriter(MateriePath))
+        using (StreamWriter writer = new StreamWriter(materiePath))
         {
             foreach (var comanda in ComenziMaterie)
             {
@@ -217,11 +231,11 @@ public class GestionareComenzi
         }
     }
 
-    public void IncarcareComenzi(string BuchetPath, string MateriePath)
+    public void IncarcareComenzi()
     {
-        if (File.Exists(BuchetPath))
+        if (File.Exists(buchetPath))
         {
-            var lines = File.ReadAllLines(BuchetPath);
+            var lines = File.ReadAllLines(buchetPath);
             foreach (var line in lines)
             {
                 var parts = line.Split("|");
@@ -241,9 +255,9 @@ public class GestionareComenzi
             }
         }
 
-        if (File.Exists(MateriePath))
+        if (File.Exists(materiePath))
         {
-            var lines = File.ReadAllLines(MateriePath);
+            var lines = File.ReadAllLines(materiePath);
             foreach (var line in lines)
             {
                 var parts = line.Split("|");
@@ -256,4 +270,7 @@ public class GestionareComenzi
             }
         }
     }
+    
+    
+    
 }

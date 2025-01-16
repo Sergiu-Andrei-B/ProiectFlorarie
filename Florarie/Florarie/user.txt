@@ -1,4 +1,5 @@
-a100|Birzu|Andrei|birzandrei@gmail.com|12
-a200|Zemora|Adrian|zmadi@gmail.com|123
-b100|Boboiciov|Sergiu|boboserj@dobitoc.com|bou
-b200|Pandele|Bogdan|pandelebogdan@gmail.com|123
+a100|Birzu|Andrei|birzuandreiorg@gmail.com|1
+a200|Zemora|Adrian|zemoraadrian@gmail.com|11
+b100|Boboiciov|Sergiu|bobosergiu@gmail.com|12
+b200|Pandele|Bogdan|pandeleinginerul@gmail.com|321
+a300|Hantar|Mihai|hantarmihai@gmail.com|12345
