@@ -33,6 +33,11 @@ public class GestionareComenzi
             return $"Este deja o comanda in lucru cu codul {angajat.comandaCurenta.CodComanda}";
         }
 
+        if (!VerificareDisponibilitateMateriale(codComandaBuchet))
+        {
+            return "Comanda nu poate fi preluata deoarece materialele necesare nu sunt disponibile.";
+        }
+        
         var comanda = ComenziBuchet.FirstOrDefault(Comanda => Comanda.CodComanda == codComandaBuchet);
         if (comanda == null)
         {
@@ -42,12 +47,6 @@ public class GestionareComenzi
         if (comanda.StatusBuchet != ComandaBuchet.Status.InPreluare)
         {
             return "Comanda nu este disponibila pentru a fi preluata.";
-        }
-
-        if (!comanda.MaterialeDisponibileVerificare())
-        {
-            comanda.StatusBuchet = ComandaBuchet.Status.AsteptareMaterie;
-            return $"Materialele necesare nu sunt disponibile pentru aceasta comanda.";
         }
         
         comanda.StatusBuchet = ComandaBuchet.Status.InLucru;
@@ -270,7 +269,37 @@ public class GestionareComenzi
             }
         }
     }
+
+    public bool VerificareDisponibilitateMateriale(int codBuchet)
+    {
+        var materialeDisponibile = File.ReadAllLines(materiePath).Select(line =>
+        {
+            var parts = line.Split('|');
+            var descriere = parts[0].Trim().ToLower();
+            var status = parts[2].Trim();
+            return status.Equals("Finalizat", StringComparison.OrdinalIgnoreCase) ? descriere : null;
+        }).Where(material => material != null).ToHashSet();
+
+        var comenziBuchet = File.ReadAllLines(buchetPath);
+        var comandaBuchet = comenziBuchet.FirstOrDefault(linie => linie.StartsWith(codBuchet.ToString()));
+
+        if (comandaBuchet == null)
+        {
+            Console.WriteLine($"Comanda cu codul {codBuchet} nu a fost gasita.");
+        }
+        
+        var materialNecesar = comandaBuchet.Split('|')[1].Trim().ToLower();
+
+        if (materialeDisponibile.Contains(materialNecesar))
+            return true;
+        else
+        {
+            Console.WriteLine($"Materialul {materialNecesar} nu este disponibil.");
+            return false;
+        }
+    }
     
-    
-    
+
+
+
 }

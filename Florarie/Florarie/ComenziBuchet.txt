@@ -1,3 +1,1 @@
-330|lalele|Sergiu|0729015523|Revendicat
-975|nuci|Sergiu|0729015523|Finalizat
-902|ghiocei|Bogdan|0729015523|InLucru
+16|Lalele|Sergiu|0729015523|InLucru
